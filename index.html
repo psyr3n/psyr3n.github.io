@@ -1,15 +1,17 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stripe Animation</title>
+  <title>Stripe Animation with Text</title>
   <style>
     :root {
       --stripe-size: 100px;
       --color1: #fff;
       --color2: #313131;
       --duration: 2s;
+      --text-color: #fff;
+      --text-hover-color: #ff69b4;
     }
 
     body {
@@ -17,6 +19,7 @@
       height: 100vh;
       overflow: hidden;
       margin: 0;
+      background-color: #111;
     }
 
     .stripe {
@@ -41,24 +44,35 @@
 
     .stripe_inner {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      color: var(--color2);
-      font-size: 2em;
+      color: var(--text-color);
+      font-size: 3em;
       font-weight: bold;
       z-index: 1;
+      animation: textAnimation 3s ease-in-out infinite;
+      transition: color 0.5s ease;
     }
 
-    /* Keyframes for stripe movement */
+    .stripe_inner:hover {
+      color: var(--text-hover-color);
+    }
+
+    /* Keyframes for stripe background movement */
     @keyframes stripeAnimation {
       0% {
         background-position: 0 0;
       }
       100% {
         background-position: var(--stripe-size) var(--stripe-size);
+      }
+    }
+
+    /* Keyframes for text animation */
+    @keyframes textAnimation {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1); /* Slight scaling for animation */
       }
     }
   </style>
