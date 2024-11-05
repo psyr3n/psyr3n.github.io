@@ -1,25 +1,36 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stripe Animation with Text</title>
+  <title>Stripe Animation</title>
   <style>
+    /* CSS Code from CodePen */
+
+    @import url('https://fonts.googleapis.com/css?family=Roboto:900&display=swap');
+
     :root {
-      --stripe-size: 100px;
-      --color1: #fff;
-      --color2: #313131;
+      --stripe-size: 80px;
+      --stripe-color: #313131;
+      --bg-color: #fff;
+      --text-color: #313131;
       --duration: 2s;
-      --text-color: #fff;
-      --text-hover-color: #ff69b4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-color);
       overflow: hidden;
-      margin: 0;
-      background-color: #111;
     }
 
     .stripe {
@@ -29,35 +40,18 @@
       align-items: center;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        45deg,
-        var(--color1) 25%,
-        var(--color2) 25%,
-        var(--color2) 50%,
-        var(--color1) 50%,
-        var(--color1) 75%,
-        var(--color2) 75%
-      );
+      background: linear-gradient(45deg, var(--bg-color) 25%, var(--stripe-color) 25%, var(--stripe-color) 50%, var(--bg-color) 50%, var(--bg-color) 75%, var(--stripe-color) 75%);
       background-size: var(--stripe-size) var(--stripe-size);
-      animation: stripeAnimation var(--duration) linear infinite;
+      animation: moveStripe var(--duration) linear infinite;
     }
 
     .stripe_inner {
-      position: relative;
+      font-size: 4rem;
       color: var(--text-color);
-      font-size: 3em;
-      font-weight: bold;
-      z-index: 1;
-      animation: textAnimation 3s ease-in-out infinite;
-      transition: color 0.5s ease;
+      animation: textMove var(--duration) linear infinite;
     }
 
-    .stripe_inner:hover {
-      color: var(--text-hover-color);
-    }
-
-    /* Keyframes for stripe background movement */
-    @keyframes stripeAnimation {
+    @keyframes moveStripe {
       0% {
         background-position: 0 0;
       }
@@ -66,20 +60,19 @@
       }
     }
 
-    /* Keyframes for text animation */
-    @keyframes textAnimation {
-      0%, 100% {
-        transform: scale(1);
+    @keyframes textMove {
+      0% {
+        transform: translate(0, 0);
       }
-      50% {
-        transform: scale(1.1); /* Slight scaling for animation */
+      100% {
+        transform: translate(var(--stripe-size), var(--stripe-size));
       }
     }
   </style>
 </head>
 <body>
   <div class="stripe">
-    <div class="stripe_inner">Psyr3n</div>
+    <div class="stripe_inner">Animated Text</div>
   </div>
 </body>
 </html>
