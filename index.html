@@ -6,6 +6,12 @@
   <title>Cyberpunk Psyr3n</title>
 
   <style>
+    /* Import the custom Cyberpunk font */
+    @font-face {
+      font-family: 'Cyberpunk';
+      src: url('https://assets.codepen.io/907368/cyberpunk.ttf') format('truetype');
+    }
+
     /* Basic reset */
     * {
       margin: 0;
@@ -46,6 +52,7 @@
       letter-spacing: 0.05em;
       text-shadow: -2px 2px 0 #ff005c, 2px -2px 0 #00e7ff;
       animation: flicker 1.5s infinite alternate;
+      font-family: 'Cyberpunk', sans-serif;
     }
 
     .cyberpunk-text::before, .cyberpunk-text::after {
@@ -99,6 +106,7 @@
         opacity: 0.5;
       }
     }
+
   </style>
 </head>
 <body>
