@@ -1,0 +1,28 @@
+:root {
+  --stripe-size: 100px;
+  --color1: #fff;
+  --color2: #313131;
+  --duration: 2s;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.stripe {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  
+  &_inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
