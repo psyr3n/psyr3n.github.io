@@ -1,70 +1,188 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Cyberpunk Template</title>
-    <link rel="stylesheet" href="style.css" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Glitch Effect</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- This link makes it so icons show up -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <section id="bg"></section>
-    <header>
-      <!-- Replace png with own image -->
-      <img src="avatar-ga26beb093_1280.png" alt="avatar" />
-      <h1>Username</h1>
-      <section class="typewriter">
-        <h2>Short bio or description goes here.</h2>
-      </section>
-    </header>
-    <main>
-      <nav id="btn-group">
-        <!-- Replace # with links to desired sites -->
-        <a href="#" class="button">Link 1</a>
-        <a href="#" class="button">Link 2</a>
-        <a href="#" class="button">Link 3</a>
-        <a href="#" class="button">Link 4</a>
-        <a href="#" class="button">Link 5</a>
-      </nav>
-    </main>
-    <section id="space"></section>
-    <div class="wrapper">
-      <div class="push"></div>
-    </div>
-    <footer>
-      <nav class="navbar">
-        <ul>
-          <li>
-            <a href="#"
-              ><i class="fa fa-linkedin" style="font-size: 24px"></i
-            ></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-twitch" style="font-size: 24px"></i></a>
-          </li>
-          <li>
-            <a href="#"
-              ><i class="fa fa-twitter" style="font-size: 24px"></i
-            ></a>
-          </li>
-          <li>
-            <a href="#"
-              ><i class="fa fa-instagram" style="font-size: 24px"></i
-            ></a>
-          </li>
-          <li>
-            <a href="#"
-              ><i class="fa fa-behance" style="font-size: 24px"></i
-            ></a>
-          </li>
-        </ul>
-      </nav>
-      <p id="name">A Red Star Blanket Creation</p>
-    </footer>
-  </body>
+    /* Centering the page */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #0d0d0d;
+      font-family: 'Courier New', Courier, monospace;
+      overflow: hidden;
+    }
+
+    /* Styling and glitch effect */
+    .glitch {
+      color: #0ff; /* Primary neon color */
+      font-size: 6rem;
+      font-weight: bold;
+      position: relative;
+      text-transform: uppercase;
+      animation: flicker 2s infinite alternate;
+    }
+
+    /* Layers for glitch colors */
+    .glitch::before, .glitch::after {
+      content: "Psyr3n";
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.8;
+      color: #f0f; /* Secondary neon color */
+      background: transparent;
+      overflow: hidden;
+      clip-path: inset(0 0 0 0);
+      animation: glitch 2s infinite linear alternate-reverse;
+    }
+
+    /* Offset colors */
+    .glitch::before {
+      left: -2px;
+      text-shadow: -2px 0 red;
+      animation: glitchTop 2s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      left: 2px;
+      text-shadow: 2px 0 blue;
+      animation: glitchBottom 2s infinite linear alternate-reverse;
+    }
+
+    /* Keyframes for text flicker */
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.4;
+      }
+    }
+
+    /* Keyframes for the glitch effect */
+    @keyframes glitch {
+      0% {
+        clip-path: inset(0 0 0 0);
+      }
+      10% {
+        clip-path: inset(10% 0 25% 0);
+      }
+      20% {
+        clip-path: inset(40% 0 10% 0);
+      }
+      30% {
+        clip-path: inset(10% 0 40% 0);
+      }
+      40% {
+        clip-path: inset(25% 0 30% 0);
+      }
+      50% {
+        clip-path: inset(15% 0 20% 0);
+      }
+      60% {
+        clip-path: inset(30% 0 10% 0);
+      }
+      70% {
+        clip-path: inset(10% 0 30% 0);
+      }
+      80% {
+        clip-path: inset(20% 0 40% 0);
+      }
+      90% {
+        clip-path: inset(30% 0 20% 0);
+      }
+      100% {
+        clip-path: inset(10% 0 10% 0);
+      }
+    }
+
+    /* Keyframes for top layer glitch */
+    @keyframes glitchTop {
+      0% {
+        transform: translate(0);
+      }
+      10% {
+        transform: translate(-2px, -2px);
+      }
+      20% {
+        transform: translate(-2px, 2px);
+      }
+      30% {
+        transform: translate(2px, -2px);
+      }
+      40% {
+        transform: translate(2px, 2px);
+      }
+      50% {
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        transform: translate(-2px, 2px);
+      }
+      70% {
+        transform: translate(2px, -2px);
+      }
+      80% {
+        transform: translate(2px, 2px);
+      }
+      90% {
+        transform: translate(-2px, -2px);
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    /* Keyframes for bottom layer glitch */
+    @keyframes glitchBottom {
+      0% {
+        transform: translate(0);
+      }
+      10% {
+        transform: translate(2px, 2px);
+      }
+      20% {
+        transform: translate(2px, -2px);
+      }
+      30% {
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        transform: translate(-2px, -2px);
+      }
+      50% {
+        transform: translate(2px, 2px);
+      }
+      60% {
+        transform: translate(2px, -2px);
+      }
+      70% {
+        transform: translate(-2px, 2px);
+      }
+      80% {
+        transform: translate(-2px, -2px);
+      }
+      90% {
+        transform: translate(2px, 2px);
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glitch">Psyr3n</div>
+</body>
 </html>
