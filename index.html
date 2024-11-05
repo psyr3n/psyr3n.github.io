@@ -3,186 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cyberpunk Glitch Effect</title>
+  <title>Cyberpunk Psyr3n</title>
   <style>
-    /* Basic Reset */
+    /* Basic reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* Centering the page */
+    /* Background animation */
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #0d0d0d;
-      font-family: 'Courier New', Courier, monospace;
       overflow: hidden;
+      background: linear-gradient(120deg, #6a00f4, #ff1493);
+      background-size: 200% 200%;
+      animation: gradient 10s ease infinite;
+      font-family: 'Cyberpunk', sans-serif;
+      color: #fff;
     }
 
-    /* Styling and glitch effect */
-    .glitch {
-      color: #0ff; /* Primary neon color */
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Text style and glitch effect */
+    .cyberpunk-text {
       font-size: 6rem;
       font-weight: bold;
+      color: #faff00; /* Neon yellow */
       position: relative;
       text-transform: uppercase;
-      animation: flicker 2s infinite alternate;
+      letter-spacing: 0.05em;
+      text-shadow: -2px 2px 0 #ff005c, 2px -2px 0 #00e7ff;
+      animation: flicker 1.5s infinite alternate;
     }
 
-    /* Layers for glitch colors */
-    .glitch::before, .glitch::after {
+    /* Additional layers for glitch effect */
+    .cyberpunk-text::before, .cyberpunk-text::after {
       content: "Psyr3n";
       position: absolute;
       top: 0;
       left: 0;
-      opacity: 0.8;
-      color: #f0f; /* Secondary neon color */
-      background: transparent;
-      overflow: hidden;
+      color: #faff00;
       clip-path: inset(0 0 0 0);
+      opacity: 0.8;
       animation: glitch 2s infinite linear alternate-reverse;
     }
 
-    /* Offset colors */
-    .glitch::before {
-      left: -2px;
-      text-shadow: -2px 0 red;
-      animation: glitchTop 2s infinite linear alternate-reverse;
-    }
-
-    .glitch::after {
+    .cyberpunk-text::before {
       left: 2px;
-      text-shadow: 2px 0 blue;
-      animation: glitchBottom 2s infinite linear alternate-reverse;
+      text-shadow: -2px 2px 0 #ff005c;
+      animation: glitchTop 1s infinite linear alternate-reverse;
     }
 
-    /* Keyframes for text flicker */
+    .cyberpunk-text::after {
+      left: -2px;
+      text-shadow: 2px -2px 0 #00e7ff;
+      animation: glitchBottom 1.5s infinite linear alternate-reverse;
+    }
+
+    /* Keyframes for glitch effect */
+    @keyframes glitch {
+      0% { clip-path: inset(10% 0 10% 0); }
+      25% { clip-path: inset(20% 0 0 0); }
+      50% { clip-path: inset(0 0 20% 0); }
+      75% { clip-path: inset(10% 0 15% 0); }
+      100% { clip-path: inset(5% 0 5% 0); }
+    }
+
+    @keyframes glitchTop {
+      0% { transform: translate(0); }
+      50% { transform: translate(-3px, -3px); }
+      100% { transform: translate(3px, 3px); }
+    }
+
+    @keyframes glitchBottom {
+      0% { transform: translate(0); }
+      50% { transform: translate(3px, -3px); }
+      100% { transform: translate(-3px, 3px); }
+    }
+
+    /* Flicker effect */
     @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
         opacity: 1;
       }
       20%, 24%, 55% {
-        opacity: 0.4;
+        opacity: 0.5;
       }
     }
 
-    /* Keyframes for the glitch effect */
-    @keyframes glitch {
-      0% {
-        clip-path: inset(0 0 0 0);
-      }
-      10% {
-        clip-path: inset(10% 0 25% 0);
-      }
-      20% {
-        clip-path: inset(40% 0 10% 0);
-      }
-      30% {
-        clip-path: inset(10% 0 40% 0);
-      }
-      40% {
-        clip-path: inset(25% 0 30% 0);
-      }
-      50% {
-        clip-path: inset(15% 0 20% 0);
-      }
-      60% {
-        clip-path: inset(30% 0 10% 0);
-      }
-      70% {
-        clip-path: inset(10% 0 30% 0);
-      }
-      80% {
-        clip-path: inset(20% 0 40% 0);
-      }
-      90% {
-        clip-path: inset(30% 0 20% 0);
-      }
-      100% {
-        clip-path: inset(10% 0 10% 0);
-      }
-    }
-
-    /* Keyframes for top layer glitch */
-    @keyframes glitchTop {
-      0% {
-        transform: translate(0);
-      }
-      10% {
-        transform: translate(-2px, -2px);
-      }
-      20% {
-        transform: translate(-2px, 2px);
-      }
-      30% {
-        transform: translate(2px, -2px);
-      }
-      40% {
-        transform: translate(2px, 2px);
-      }
-      50% {
-        transform: translate(-2px, -2px);
-      }
-      60% {
-        transform: translate(-2px, 2px);
-      }
-      70% {
-        transform: translate(2px, -2px);
-      }
-      80% {
-        transform: translate(2px, 2px);
-      }
-      90% {
-        transform: translate(-2px, -2px);
-      }
-      100% {
-        transform: translate(0);
-      }
-    }
-
-    /* Keyframes for bottom layer glitch */
-    @keyframes glitchBottom {
-      0% {
-        transform: translate(0);
-      }
-      10% {
-        transform: translate(2px, 2px);
-      }
-      20% {
-        transform: translate(2px, -2px);
-      }
-      30% {
-        transform: translate(-2px, 2px);
-      }
-      40% {
-        transform: translate(-2px, -2px);
-      }
-      50% {
-        transform: translate(2px, 2px);
-      }
-      60% {
-        transform: translate(2px, -2px);
-      }
-      70% {
-        transform: translate(-2px, 2px);
-      }
-      80% {
-        transform: translate(-2px, -2px);
-      }
-      90% {
-        transform: translate(2px, 2px);
-      }
-      100% {
-        transform: translate(0);
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="glitch">Psyr3n</div>
+  <div class="cyberpunk-text">Psyr3n</div>
 </body>
 </html>
