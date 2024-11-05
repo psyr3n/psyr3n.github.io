@@ -109,19 +109,20 @@
 
     /* Off-Canvas Menu Styling */
     .offcanvas-menu {
-      position: fixed;
+      position:absolute;
       top: 0;
       left: 0;
       width: 200px;
       height: 100vh;
       background: #1a1a1a;
-      padding: 1rem;
+      padding: 5rem 1rem 1rem 1rem;
       color: #faff00;
       font-family: 'Cyberpunk', sans-serif;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
       z-index: 1;
       box-shadow: 2px 0px 15px rgba(0, 0, 0, 0.6);
+      text-align:center;
     }
 
     .offcanvas-menu.open {
@@ -156,10 +157,10 @@
       left: 20px;
       background: #00e7ff;
       color: #1a1a1a;
-      border: none;
+      border: solid;
       padding: 0.3rem 0.6rem;
       font-size: 0.9rem;
-      cursor: pointer;
+      cursor:pointer;
       z-index: 2;
       font-family: 'Cyberpunk', sans-serif;
       transition: background 0.3s ease;
@@ -168,6 +169,7 @@
     .menu-btn:hover {
       background: #ff005c;
       color: #fff;
+      border-color: #faff00;
     }
   </style>
 </head>
