@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cyberpunk Psyr3n</title>
+  <title>Cyberpunk Psyr3n with Top-Left Menu</title>
 
   <style>
     /* Import the custom Cyberpunk font */
@@ -44,7 +44,7 @@
 
     /* Glitch effect styling */
     .cyberpunk-text {
-      font-size: 12rem;
+      font-size: 6rem;
       font-weight: bold;
       color: #faff00; /* Neon yellow */
       position: relative;
@@ -107,6 +107,68 @@
       }
     }
 
+    /* Off-Canvas Menu Styling */
+    .offcanvas-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
+      background: #1a1a1a;
+      padding: 1rem;
+      color: #faff00;
+      font-family: 'Cyberpunk', sans-serif;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1;
+      box-shadow: 2px 0px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .offcanvas-menu.open {
+      transform: translateX(0);
+    }
+
+    .offcanvas-menu h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #00e7ff;
+      text-transform: uppercase;
+    }
+
+    .offcanvas-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .offcanvas-menu ul li {
+      margin: 0.5rem 0;
+    }
+
+    .offcanvas-menu ul li a {
+      color: #faff00;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #00e7ff;
+      color: #1a1a1a;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 2;
+      font-family: 'Cyberpunk', sans-serif;
+      transition: background 0.3s ease;
+    }
+
+    .menu-btn:hover {
+      background: #ff005c;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -119,6 +181,29 @@
 
   <!-- Glitch Text -->
   <div class="cyberpunk-text">Psyr3n</div>
+
+  <!-- Off-Canvas Menu Button -->
+  <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+
+  <!-- Off-Canvas Menu -->
+  <div id="offcanvasMenu" class="offcanvas-menu">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- JavaScript to toggle off-canvas menu -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('offcanvasMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
