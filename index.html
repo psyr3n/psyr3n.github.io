@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cyberpunk Psyr3n</title>
-  
-  <!-- Import Orbitron font from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 
   <style>
     /* Basic reset */
@@ -16,33 +13,30 @@
       box-sizing: border-box;
     }
 
-    /* Background animation */
+    /* Video background styling */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Text styling */
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       overflow: hidden;
-      background: linear-gradient(120deg, #6a00f4, #ff1493);
-      background-size: 200% 200%;
-      animation: gradient 10s ease infinite;
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Cyberpunk', sans-serif;
       color: #fff;
+      background: black;
     }
 
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* Text style and glitch effect */
+    /* Glitch effect styling */
     .cyberpunk-text {
       font-size: 6rem;
       font-weight: bold;
@@ -54,7 +48,6 @@
       animation: flicker 1.5s infinite alternate;
     }
 
-    /* Additional layers for glitch effect */
     .cyberpunk-text::before, .cyberpunk-text::after {
       content: "Psyr3n";
       position: absolute;
@@ -78,7 +71,6 @@
       animation: glitchBottom 1.5s infinite linear alternate-reverse;
     }
 
-    /* Keyframes for glitch effect */
     @keyframes glitch {
       0% { clip-path: inset(10% 0 10% 0); }
       25% { clip-path: inset(20% 0 0 0); }
@@ -99,7 +91,6 @@
       100% { transform: translate(-3px, 3px); }
     }
 
-    /* Flicker effect */
     @keyframes flicker {
       0%, 18%, 22%, 25%, 53%, 57%, 100% {
         opacity: 1;
@@ -108,10 +99,18 @@
         opacity: 0.5;
       }
     }
-
   </style>
 </head>
 <body>
+
+  <!-- Video Background -->
+  <video class="video-bg" autoplay loop muted>
+    <source src="82515-580137713_small.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Glitch Text -->
   <div class="cyberpunk-text">Psyr3n</div>
+
 </body>
 </html>
