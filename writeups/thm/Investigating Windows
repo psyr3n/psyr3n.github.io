@@ -1,0 +1,36 @@
+WINDOWS INVESTIGATION
+
+SOLUTION:
+
+1.Whats the version and year of the windows machine?
+Answer. Windows Server 2016
+2.Which user logged in last?
+Answer. Administrator
+3.When did John log onto the system last?
+Answer. 03/02/2019 5:48:32 PM
+4.What IP does the system connect to when it first starts?
+Answer. 10.34.2.3
+5.What two accounts had administrative privileges (other than the Administrator user)?
+Answer. Jenny, Guest
+6.Whats the name of the scheduled task that is malicious.
+Answer. Clean file system
+7.What file was the task trying to run daily?
+Answer. nc.ps1
+8.What port did this file listen locally for?
+Answer. 1348
+9.When did Jenny last logon?
+Answer. Never
+10.At what date did the compromise take place?
+Answer. 03/02/2019
+11.During the compromise, at what time did Windows first assign special privileges to a new logon?
+Answer. 03/02/2019 4:04:49 PM
+12.What tool was used to get Windows passwords?
+Answer. Mimikatz
+13.What was the attackers external control and command servers IP?
+Answer. 76.32.97.132
+14.What was the extension name of the shell uploaded via the servers website?
+Answer. .jsp
+15.What was the last port the attacker opened?
+Answer. 1337
+16.Check for DNS poisoning, what site was targeted?
+Answer. google.com
